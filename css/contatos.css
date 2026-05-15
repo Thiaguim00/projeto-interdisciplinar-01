@@ -1,0 +1,72 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+/* BOTÃO */
+.btn-abrir{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* FUNDO ESCURO */
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.5);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAIXA */
+.modal{
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* INPUTS */
+.modal input{
+    padding: 10px;
+}
+
+/* BOTÕES */
+.botoes{
+    display: flex;
+    gap: 10px;
+}
+
+.botoes button{
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* CONTATOS */
+#listaContatos{
+    margin-top: 20px;
+}
+
+.contato{
+    background: #f1f1f1;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+}

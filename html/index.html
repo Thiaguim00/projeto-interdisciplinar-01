@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos</title>
+
+    <link rel="stylesheet" href="/css/contatos.css">
+</head>
+
+<body>
+
+    <!-- BOTÃO -->
+    <button class="btn-abrir" onclick="abrirModal()">
+        + Novo Contato
+    </button>
+
+    <!-- SOBREPOSIÇÃO -->
+    <div class="overlay" id="overlay">
+
+        <!-- CAIXA -->
+        <div class="modal">
+
+            <h2>Adicionar Contato</h2>
+
+            <input type="text" id="nome" placeholder="Nome">
+
+            <input type="text" id="telefone" placeholder="Telefone">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <div class="botoes">
+
+                <button onclick="adicionarContato()">
+                    Salvar
+                </button>
+
+                <button onclick="fecharModal()">
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LISTA -->
+    <div id="listaContatos"></div>
+
+    <script src="/java/contatos.js"></script>
+
+</body>
+
+</html>
