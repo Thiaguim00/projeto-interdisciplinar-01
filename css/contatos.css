@@ -70,3 +70,31 @@ body{
 
     margin-bottom: 10px;
 }
+
+/* BOTÃO DELETAR */
+.btn-delete{
+
+    margin-top: 10px;
+
+    padding: 8px;
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #0f8100;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-delete:hover{
+
+    background: #0b6100;
+
+}
