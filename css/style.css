@@ -1,0 +1,215 @@
+/* 
+   =========================================================
+   CSS GLOBAL E RESET
+   ========================================================= 
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+}
+
+/* 
+   =========================================================
+   MENU LATERAL (SIDEBAR) - ESTRUTURA E COMPORTAMENTO
+   ========================================================= 
+*/
+.sidebar {
+    width: 70px;
+    /* Largura padrão (apenas ícones) */
+    height: 100vh;
+    background-color: #1b5e20;
+    /* Cor principal (Verde) */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    /* Mantém o menu fixo ao rolar a página */
+    transition: width 0.3s ease;
+    /* Velocidade da animação de expansão */
+    overflow: hidden;
+    /* Esconde o texto quando o menu está fechado */
+    z-index: 1000;
+}
+
+/* Expansão ao passar o mouse */
+.sidebar:hover {
+    width: 250px;
+}
+
+/* 
+   --- LOGO E MARCA ---
+*/
+.logo {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2e7d32;
+    height: 80px;
+}
+
+.logo i {
+    font-size: 24px;
+    min-width: 30px;
+    text-align: center;
+    color: #81c784;
+}
+
+.logo-text {
+    margin-left: 8px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+.logo span {
+    color: #81c784;
+}
+
+/* 
+   --- CONTAINER DE LINKS E CATEGORIAS ---
+*/
+.menu-container {
+    flex-grow: 1;
+    /* Faz o menu ocupar o espaço disponível verticalmente */
+    padding: 20px 0;
+    overflow-y: auto;
+    /* Adiciona scroll interno se houver muitos itens */
+    overflow-x: hidden;
+    /* Evita barra de rolagem horizontal no modo recolhido */
+}
+
+/* Estilização dos Títulos de Categoria */
+.titulo-categoria {
+    padding: 0 25px;
+    font-size: 10px;
+    color: #a5d6a7;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.sidebar:hover .titulo-categoria {
+    opacity: 1;
+}
+
+/* Estilização dos Links (Itens do Menu) */
+.categoria ul {
+    list-style: none;
+}
+
+.categoria ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 23px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.categoria ul li a i {
+    min-width: 24px;
+    font-size: 18px;
+    margin-right: 8px;
+    color: #81c784;
+    text-align: center;
+}
+
+.categoria ul li a span {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .categoria ul li a span {
+    opacity: 1;
+}
+
+/* Efeito Hover nos Links */
+.categoria ul li a:hover {
+    background-color: #2e7d32;
+}
+
+/* 
+   --- RODAPÉ DO MENU (SAIR) ---
+*/
+.sidebar-footer {
+    padding: 10px 0;
+    border-top: 1px solid #2e7d32;
+}
+
+.btn-sair {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Centraliza o ícone no modo recolhido */
+    width: 100%;
+    padding: 12px 0;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-sair i {
+    min-width: 24px;
+    font-size: 18px;
+    margin-right: 8px;
+    text-align: center;
+}
+
+.btn-sair span {
+    display: none;
+    /* Importante: impede que o texto invisível desalinhe o ícone central */
+    opacity: 0;
+}
+
+.sidebar:hover .btn-sair span {
+    display: inline;
+    opacity: 1;
+}
+
+.btn-sair:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffcdd2;
+}
+
+/* 
+   =========================================================
+   ÁREA DE CONTEÚDO (CONTENT)
+   ========================================================= 
+*/
+.content {
+    margin-left: 70px;
+    /* Deve ser igual à largura da sidebar recolhida */
+    padding: 30px;
+    width: calc(100% - 70px);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+/* Títulos e textos do conteúdo */
+.content h1 {
+    color: #1b5e20;
+    margin-bottom: 10px;
+}
+
+.content hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
