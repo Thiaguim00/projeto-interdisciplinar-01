@@ -1,16 +1,37 @@
 body{
     font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f5f7fa;
 }
 
-/* BOTÃO */
+/* BOTÃO NOVO CONTATO */
 .btn-abrir{
-    padding: 10px 20px;
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #1b5e20;
+
+    color: white;
+
     cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-abrir:hover{
+    background: #2e7d32;
 }
 
 /* FUNDO ESCURO */
+
 .overlay{
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -23,68 +44,180 @@ body{
 
     justify-content: center;
     align-items: center;
+
+    z-index: 999;
 }
 
-/* CAIXA */
+/* MODAL */
+
 .modal{
+
     background: white;
 
     padding: 30px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     width: 400px;
 
     display: flex;
     flex-direction: column;
-    gap: 10px;
+
+    gap: 12px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-/* INPUTS */
-.modal input{
-    padding: 10px;
-}
+.modal h2{
 
-/* BOTÕES */
-.botoes{
-    display: flex;
-    gap: 10px;
-}
-
-.botoes button{
-    padding: 10px;
-    cursor: pointer;
-}
-
-/* CONTATOS */
-#listaContatos{
-    margin-top: 20px;
-}
-
-.contato{
-    background: #f1f1f1;
-
-    padding: 15px;
-
-    border-radius: 10px;
+    color: #1b5e20;
 
     margin-bottom: 10px;
 }
 
-/* BOTÃO DELETAR */
-.btn-delete{
+.modal input{
 
-    margin-top: 10px;
+    padding: 12px;
 
-    padding: 8px;
+    border: 1px solid #ccc;
 
-    width: 100%;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.modal input:focus{
+
+    border-color: #1b5e20;
+}
+
+/* BOTÕES MODAL */
+
+.botoes{
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.botoes button{
+
+    flex: 1;
+
+    padding: 10px;
 
     border: none;
 
     border-radius: 8px;
 
-    background: #0f8100;
+    cursor: pointer;
+}
+
+.botoes button:first-child{
+
+    background: #1b5e20;
+
+    color: white;
+}
+
+.botoes button:last-child{
+
+    background: #ccc;
+}
+
+/* LISTA */
+
+#listaContatos{
+
+    margin-top: 20px;
+}
+
+/* CARD */
+
+.contato{
+
+    background: white;
+
+    border-left: 5px solid #1b5e20;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.contato:hover{
+
+    transform: translateY(-3px);
+}
+
+.contato h3{
+
+    color: #1b5e20;
+
+    margin-bottom: 10px;
+}
+
+.contato p{
+
+    margin-bottom: 6px;
+}
+
+/* AÇÕES */
+
+.acoes{
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+/* EDITAR */
+
+.btn-edit{
+
+    flex: 1;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    background: #1976d2;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-edit:hover{
+
+    background: #125aa0;
+}
+
+/* DELETAR */
+
+.btn-delete{
+
+    flex: 1;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    background: #c62828;
 
     color: white;
 
@@ -95,6 +228,5 @@ body{
 
 .btn-delete:hover{
 
-    background: #0b6100;
-
+    background: #8e0000;
 }

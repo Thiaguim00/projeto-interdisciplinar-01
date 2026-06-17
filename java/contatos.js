@@ -2,27 +2,37 @@ console.log("JS carregou");
 
 const api = "http://localhost:3000/contatos";
 
+let contatoEditando = null;
+
+/* MODAL */
+
 function abrirModal() {
 
     document.getElementById("overlay").style.display = "flex";
-
 }
 
 function fecharModal() {
 
     document.getElementById("overlay").style.display = "none";
 
+    document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
+    document.getElementById("email").value = "";
+
+    contatoEditando = null;
 }
+
+/* ADICIONAR OU EDITAR */
 
 async function adicionarContato() {
 
-    let nome = document.getElementById("nome").value;
+    let nome = document.getElementById("nome").value.trim();
 
-    let telefone = document.getElementById("telefone").value;
+    let telefone = document.getElementById("telefone").value.trim();
 
-    let email = document.getElementById("email").value;
+    let email = document.getElementById("email").value.trim();
 
-    if (nome === "" || telefone === "" || email === "") {
+    if (!nome || !telefone || !email) {
 
         alert("Preencha todos os campos!");
 
@@ -30,33 +40,45 @@ async function adicionarContato() {
     }
 
     const contato = {
-        nome: nome,
-        telefone: telefone,
-        email: email
+
+        nome,
+        telefone,
+        email
     };
 
-    await fetch(api, {
+    if (contatoEditando) {
 
-        method: "POST",
+        await fetch(`${api}/${contatoEditando}`, {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            method: "PUT",
 
-        body: JSON.stringify(contato)
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    });
+            body: JSON.stringify(contato)
+        });
 
-    document.getElementById("nome").value = "";
+    } else {
 
-    document.getElementById("telefone").value = "";
+        await fetch(api, {
 
-    document.getElementById("email").value = "";
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(contato)
+        });
+    }
 
     fecharModal();
 
     carregarContatos();
 }
+
+/* LISTAR */
 
 async function carregarContatos() {
 
@@ -80,12 +102,25 @@ async function carregarContatos() {
 
                 <p>✉️ ${contato.email}</p>
 
-                <button class="btn-delete"
-                    onclick="deletarContato('${contato.id}')">
+                <div class="acoes">
 
-                    Deletar
+                    <button
+                        class="btn-edit"
+                        onclick="editarContato('${contato.id}')">
 
-                </button>
+                        Editar
+
+                    </button>
+
+                    <button
+                        class="btn-delete"
+                        onclick="deletarContato('${contato.id}')">
+
+                        Deletar
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -93,15 +128,42 @@ async function carregarContatos() {
     });
 }
 
+/* EDITAR */
+
+async function editarContato(id) {
+
+    const resposta = await fetch(`${api}/${id}`);
+
+    const contato = await resposta.json();
+
+    document.getElementById("nome").value = contato.nome;
+
+    document.getElementById("telefone").value = contato.telefone;
+
+    document.getElementById("email").value = contato.email;
+
+    contatoEditando = id;
+
+    abrirModal();
+}
+
+/* DELETAR */
+
 async function deletarContato(id) {
 
-    await fetch(`http://localhost:3000/contatos/${id}`, {
+    if (!confirm("Deseja realmente excluir este contato?")) {
+
+        return;
+    }
+
+    await fetch(`${api}/${id}`, {
 
         method: "DELETE"
-
     });
 
     carregarContatos();
 }
+
+/* INICIAR */
 
 carregarContatos();

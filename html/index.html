@@ -6,128 +6,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock.tech - Template Base</title>
 
-    <!-- FONTS: Importação das fontes do projeto (Poppins) -->
+    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <!-- ICONS: Biblioteca Font Awesome para os ícones do menu -->
+    <!-- ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- STYLES: Arquivo CSS principal -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
     <!-- =========================================================
-         MENU LATERAL (SIDEBAR)
+         MENU LATERAL
          ========================================================= -->
+
     <nav class="sidebar">
 
-        <!-- LOGO: Área superior com ícone e nome do site -->
+        <!-- LOGO -->
         <div class="logo">
             <i class="fa-solid fa-box-archive"></i>
             <h2 class="logo-text">Stock<span>.tech</span></h2>
         </div>
 
-        <!-- MENU DE NAVEGAÇÃO: Container principal dos links -->
+        <!-- MENU -->
         <div class="menu-container">
 
-            <!-- CATEGORIA: Visão Geral -->
+            <!-- VISÃO GERAL -->
             <div class="categoria">
+
                 <p class="titulo-categoria">Visão Geral</p>
-                <ul>
-                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-money-bill-wave"></i> <span>Financeiro</span></a></li>
-                </ul>
-            </div>
 
-            <!-- CATEGORIA: Estoque -->
-            <div class="categoria">
-                <p class="titulo-categoria">Estoque</p>
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-truck-ramp-box"></i> <span>Movimentações</span></a></li>
-                    <li><a href="#"><i class="fa-solid fa-box-open"></i> <span>Produtos</span></a></li>
-                </ul>
-            </div>
 
-            <!-- CATEGORIA: Comercial -->
-            <div class="categoria">
-                <p class="titulo-categoria">Comercial</p>
-                <ul>
                     <li>
-                        <a href="#">
-                            <i class="fa-solid fa-cart-shopping"></i> 
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-money-bill-wave"></i>
+                            <span>Financeiro</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- ESTOQUE -->
+            <div class="categoria">
+
+                <p class="titulo-categoria">Estoque</p>
+
+                <ul>
+
+                    <li>
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                            <span>Movimentações</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-box-open"></i>
+                            <span>Produtos</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- COMERCIAL -->
+            <div class="categoria">
+
+                <p class="titulo-categoria">Comercial</p>
+
+                <ul>
+
+                    <li>
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-cart-shopping"></i>
                             <span>Pedido de Vendas</span>
                         </a>
                     </li>
+
                     <li>
                         <a href="./contatos.html" target="frameConteudo">
                             <i class="fa-solid fa-address-book"></i>
                             <span>Contatos</span>
                         </a>
                     </li>
+
                 </ul>
+
             </div>
 
-            <!-- CATEGORIA: Suporte -->
+            <!-- SUPORTE -->
             <div class="categoria">
-                <p class="titulo-categoria">Suporte</p>
-                <ul>
-                    <li><a href="#"><i class="fa-solid fa-circle-question"></i> <span>FAQ</span></a></li>
-                </ul>
-            </div>
 
-            <!-- PARA ADICIONAR NOVA CATEGORIA:
-                 Copie um dos blocos 'categoria' acima e altere ícones e textos.
-                 Lista de ícones: https://fontawesome.com/icons 
-            -->
+                <p class="titulo-categoria">Suporte</p>
+
+                <ul>
+
+                    <li>
+                        <a href="#" onclick="limparFrame()">
+                            <i class="fa-solid fa-circle-question"></i>
+                            <span>FAQ</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
 
         </div>
 
-        <!-- RODAPÉ DO MENU: Botão de Sair/Desconectar -->
+        <!-- RODAPÉ -->
         <div class="sidebar-footer">
+
             <a href="#" class="btn-sair">
-                <i class="fa-solid fa-right-from-bracket"></i> <span>Desconectar</span>
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Desconectar</span>
+
             </a>
+
         </div>
 
     </nav>
-    <!-- =========================================================
-         FIM DO MENU LATERAL
-         ========================================================= -->
-
 
     <!-- =========================================================
-         ÁREA DE CONTEÚDO PRINCIPAL (MAINT CONTENT)
-         Toda nova página deve ter seu conteúdo dentro desta tag <main>.
+         CONTEÚDO
          ========================================================= -->
+
     <main class="content">
 
         <header>
-            <h1>Título da Página</h1>
-            <p>Subtítulo ou descrição breve da seção.</p>
+
+            <h1>Stock.tech</h1>
+
+            <p>Sistema de gerenciamento de estoque e contatos.</p>
+
         </header>
 
         <hr>
 
         <section class="page-body">
 
-            <iframe 
-            id="frameConteudo" 
-            name="frameConteudo" 
-            src="" 
-            style=""
-             width:100%;
-             height:800px;
-             border:none;>
+            <iframe
+                id="frameConteudo"
+                name="frameConteudo"
+                class="frame-conteudo"
+                src="">
             </iframe>
 
         </section>
 
     </main>
+
     <!-- =========================================================
-         FIM DA ÁREA DE CONTEÚDO
+         SCRIPT
          ========================================================= -->
+
+    <script>
+
+        function limparFrame() {
+
+            document.getElementById("frameConteudo").src = "";
+
+        }
+
+    </script>
 
 </body>
 
