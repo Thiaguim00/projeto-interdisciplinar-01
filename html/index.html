@@ -18,19 +18,14 @@
 
 <body>
 
-    <!-- =========================================================
-         MENU LATERAL
-         ========================================================= -->
-
+    <!-- MENU LATERAL -->
     <nav class="sidebar">
 
-        <!-- LOGO -->
         <div class="logo">
             <i class="fa-solid fa-box-archive"></i>
             <h2 class="logo-text">Stock<span>.tech</span></h2>
         </div>
 
-        <!-- MENU -->
         <div class="menu-container">
 
             <!-- VISÃO GERAL -->
@@ -98,7 +93,9 @@
                     </li>
 
                     <li>
-                        <a href="./contatos.html" target="frameConteudo">
+                        <a href="./contatos.html"
+                           target="frameConteudo"
+                           onclick="salvarPagina('./contatos.html')">
                             <i class="fa-solid fa-address-book"></i>
                             <span>Contatos</span>
                         </a>
@@ -128,7 +125,6 @@
 
         </div>
 
-        <!-- RODAPÉ -->
         <div class="sidebar-footer">
 
             <a href="#" class="btn-sair">
@@ -143,10 +139,7 @@
 
     </nav>
 
-    <!-- =========================================================
-         CONTEÚDO
-         ========================================================= -->
-
+    <!-- CONTEÚDO -->
     <main class="content">
 
         <header>
@@ -172,17 +165,35 @@
 
     </main>
 
-    <!-- =========================================================
-         SCRIPT
-         ========================================================= -->
-
     <script>
+
+        const frame = document.getElementById("frameConteudo");
+
+        function salvarPagina(pagina) {
+
+            localStorage.setItem("paginaAtual", pagina);
+
+        }
 
         function limparFrame() {
 
-            document.getElementById("frameConteudo").src = "";
+            frame.src = "";
+
+            localStorage.removeItem("paginaAtual");
 
         }
+
+        window.onload = function () {
+
+            const pagina = localStorage.getItem("paginaAtual");
+
+            if (pagina) {
+
+                frame.src = pagina;
+
+            }
+
+        };
 
     </script>
 
